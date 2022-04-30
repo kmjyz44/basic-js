@@ -1,8 +1,7 @@
 function getSeason(...date){
    
-    if(!date instanceof Date){
-        console.log('Invalid date!')
-        
+    if(Object.prototype.toString.call(date) === '[object Date]' ){
+    console.log('Invalid date!')    
     }
     let season ="";
      let dateD= new Date(date); 
@@ -31,7 +30,8 @@ switch(month){
 }
     
 console.log(season);
-    
+
  }
-getSeason(4456);
+
+getSeason(49996);
 
