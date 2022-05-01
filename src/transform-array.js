@@ -1,8 +1,9 @@
 function transform(arr){
-    let array =arr;
-    
+  if((Array.isArray(arr))){
+   
+    let array =arr.slice(0);
 for(let i = 0;i<arr.length;i++ ){
-  //console.log(arr[i]); 
+  
 switch(arr[i]){
   
   case '--discard-next':
@@ -13,16 +14,17 @@ switch(arr[i]){
     break;
   case '--double-next':
     array.splice(i,0,array[i+1]);
+   array.splice(array.indexOf('--double-next', 0),1); 
     break;
   case '--double-prev':  
   array.splice(i-1,0,array[i-1]);
+  array.splice(array.indexOf('--double-prev', 0),1); 
   break;
 }
-///break;
-
- } 
-    console.log(array);
 }
-
-
-//transform([1, 2, 3,'--double-next', 4, 5]); 
+  
+ 
+    return array;
+}
+console.log('arr parameter must be an instance of the Array!');
+}
